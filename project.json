@@ -1,0 +1,24 @@
+{
+  "overview": "EduCampus – Smart Notice Board is a full-stack web app for campus announcements. Admins post and manage notices across categories (Academic, Events, Sports, General). Students browse, search, and view notices with file attachments. Features role-based login, beautiful dark/light themes, and analytics charts.",
+  "features": [
+    "Role-based login for Admin and Student",
+    "Admin notice management: create, edit, delete",
+    "Search and filter notices by title, category, or description",
+    "Pie chart and Line chart analytics dashboard",
+    "Category color tags and card-based notice display",
+    "Dark/Light theme toggle with localStorage persistence",
+    "Sidebar layout with responsive mobile support",
+    "Pre-populated sample data with demo accounts"
+  ],
+  "category": "productivity",
+  "tags": [
+    "education",
+    "notice-board",
+    "admin-panel",
+    "role-based-access",
+    "charts",
+    "dark-mode",
+    "full-stack"
+  ],
+  "last_updated": "2026-04-16T09:36:50.791Z"
+}

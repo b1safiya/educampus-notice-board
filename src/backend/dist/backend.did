@@ -1,0 +1,87 @@
+type UpdateNoticeRequest = 
+ record {
+   category: Category;
+   date: text;
+   description: text;
+   fileUrl: text;
+   id: NoticeId;
+   title: text;
+ };
+type Timestamp = int;
+type Role = 
+ variant {
+   admin;
+   student;
+ };
+type RegisterResult = 
+ variant {
+   err: text;
+   ok;
+ };
+type RegisterRequest = 
+ record {
+   password: text;
+   role: Role;
+   username: text;
+ };
+type NoticeResult = 
+ variant {
+   err: text;
+   ok: Notice;
+ };
+type NoticeId = nat;
+type Notice = 
+ record {
+   category: Category;
+   createdAt: Timestamp;
+   createdBy: text;
+   date: text;
+   description: text;
+   fileUrl: text;
+   id: NoticeId;
+   title: text;
+ };
+type LoginResult = 
+ variant {
+   err: text;
+   ok: record {
+         role: Role;
+         username: text;
+       };
+ };
+type LoginRequest = 
+ record {
+   password: text;
+   username: text;
+ };
+type DeleteResult = 
+ variant {
+   err: text;
+   ok;
+ };
+type CreateNoticeRequest = 
+ record {
+   category: Category;
+   date: text;
+   description: text;
+   fileUrl: text;
+   title: text;
+ };
+type Category = 
+ variant {
+   academic;
+   event;
+   general;
+   sports;
+ };
+service : {
+  createNotice: (req: CreateNoticeRequest, adminUsername: text) ->
+   (NoticeResult);
+  deleteNotice: (id: nat, adminUsername: text) -> (DeleteResult);
+  getAllNotices: () -> (vec Notice) query;
+  getNoticeById: (id: nat) -> (opt Notice) query;
+  login: (req: LoginRequest) -> (LoginResult);
+  register: (req: RegisterRequest) -> (RegisterResult);
+  updateNotice: (req: UpdateNoticeRequest, adminUsername: text) ->
+   (NoticeResult);
+}

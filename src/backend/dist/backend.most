@@ -1,0 +1,45 @@
+// Version: 1.0.0
+type Category__121688556 = Category__936342486;
+type Category__936342486 = {#academic; #event; #general; #sports};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NoticeId__539436524 = Nat;
+type NoticeId__854524751 = NoticeId__539436524;
+type Notice__313028600 =
+  {
+    category : Category__121688556;
+    createdAt : Timestamp__140574522;
+    createdBy : Text;
+    date : Text;
+    description : Text;
+    fileUrl : Text;
+    id : NoticeId__854524751;
+    title : Text
+  };
+type Role__300349085 = {#admin; #student};
+type Role__490071529 = Role__300349085;
+type Timestamp__140574522 = Timestamp__301639476;
+type Timestamp__301639476 = Int;
+type Timestamp__608627923 = Timestamp__301639476;
+type User__455962502 =
+  {
+    createdAt : Timestamp__608627923;
+    var passwordHash : Text;
+    var role : Role__490071529;
+    username : Text
+  };
+actor {
+  stable var _nextNoticeId : Nat;
+  stable notices :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Notice__313028600]];
+      var elementIndex : Nat__490723111
+    };
+  stable users :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?User__455962502]];
+      var elementIndex : Nat__490723111
+    }
+};
